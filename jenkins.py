@@ -6,5 +6,5 @@ job_name = ''
 address = jenkins_address+'/'+job_name
 job_id  = 0
 address = address+'/'+str(job_id)+'/api/python?pretty=true'
-r = requests.get(address)
+r = requests.get(address, verify=False)
 print(r)
