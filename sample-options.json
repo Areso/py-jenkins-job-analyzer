@@ -1,6 +1,6 @@
 {
 	"schema":"https",
-	"ssl_enforce":"False",
+	"ssl_enforce":false,
 	"jnk_address":"",
 	"username":"",
 	"token":"",
