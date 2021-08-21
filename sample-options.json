@@ -1,9 +1,9 @@
 {
-	"schema"="https",
-	"ssl_enforce"=False,
-	"jnk_address"="",
-	"username"="",
-	"token"="",
-	"job_names"=[""],
-	"job_id"=0
+	"schema":"https",
+	"ssl_enforce":False,
+	"jnk_address":"",
+	"username":"",
+	"token":"",
+	"job_names":[""],
+	"job_id":0
 }
