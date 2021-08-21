@@ -6,10 +6,12 @@ import json
 
 def bigf(options):
     address          = options['schema']+'://'+options['username']+':'+options['token']
-    address          = address+'@'+options['jnk_address']+'/'+options['job_name'[0]]
- 
+    address          = address+'@'+options['jnk_address']+'/'+options['job_names'][0]
     address    = address+'/'+str(options['job_id'])+'/api/json?pretty=true'
-    r          = requests.get(address, verify=bool(options['ssl_enforce'])).json()
+    ssl_verify = bool(options['ssl_enforce']
+    print(ssl_verify)
+    print(type(ssl_verify))
+    r          = requests.get(address, verify=)).json()
     params     = r['actions'][0]['parameters']
     params_new = {}
     for param in params:
