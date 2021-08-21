@@ -16,7 +16,7 @@ import json
         param_key    = param['name']
         param_value  = param['value']
         params_new[param_key] = param_value
-    displayName  = r['DisplayName']
+    displayName  = r['displayName']
     full_job_url = r['url']
     job_causer   = r['actions'][1]['causes']
     job_duration = r['duration']
