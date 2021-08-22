@@ -5,10 +5,10 @@
 	"username":"",
 	"token":"",
 	"job_names":[""],
-	"job_id":0
+	"job_id":0,
 	"db_name":"jenkins_jobs",
 	"db_host":"localhost",
 	"db_port":5432,
 	"db_user":"username",
-	"db_pass":"password"
+	"db_pass":"password",
 }
