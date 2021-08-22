@@ -27,7 +27,7 @@ def bigf(options):
         sys.stderr.write("unable to connect to the DB")
         sys.exit(1)
     cursor  = conn.cursor()
-    cursor.execute("SELECT * FROM job_defs WHERE job_name=%(job_name)s",
+    cursor.execute("SELECT * FROM job_defs WHERE job_link=%(job_name)s",
                    {"job_name": options["job_names"][0]})
     records = cursor.fetchall()
     print(type(records))
