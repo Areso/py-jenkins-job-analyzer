@@ -2,7 +2,7 @@
 import requests
 import json
 import psycopg2
-
+import sys
 
 def bigf(options):
     address          = options['schema']+'://'+options['username']+':'+options['token']
@@ -24,6 +24,8 @@ def bigf(options):
         conn = psycopg2.connect(cs)
     except:
         print("unable to connect to the DB")
+        sys.stderr.write("unable to connect to the DB")
+        sys.exit(1)
     r          = requests.get(address, verify=ssl_verify).json()
     params     = r['actions'][0]['parameters']
     params_new = {}
