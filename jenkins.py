@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import requests
 import json
+import psycopg2
 
 
  def bigf(options):
