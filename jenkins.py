@@ -8,7 +8,7 @@ def bigf(options):
     address          = options['schema']+'://'+options['username']+':'+options['token']
     address          = address+'@'+options['jnk_address']+'/'+options['job_names'][0]
     address    = address+'/'+str(options['job_id'])+'/api/json?pretty=true'
-    ssl_verify = bool(options['ssl_enforce']
+    ssl_verify = bool(options['ssl_enforce'])
     
     try:
         cs   = """dbname   = %s 
