@@ -1,6 +1,6 @@
 CREATE TABLE job_defs (
     id SERIAL PRIMARY KEY,
-    job_link VARCHAR(512) NUT NULL
+    job_link VARCHAR(512) NOT NULL
 );
 
 CREATE TABLE job_runs (
