@@ -11,16 +11,17 @@ def bigf(options):
     ssl_verify = bool(options['ssl_enforce']
     
     try:
-        conn = psycopg2.connect("""dbname   = %s 
-                                   host     = %s 
-                                   port     = %s 
-                                   user     = %s 
-                                   password = %s """) % (
-                                   options['db_name'],
-                                   options['db_host'],
-                                   options['db_port'],
-                                   options['db_user'],
-                                   options['db_pass'])
+        cs   = """dbname   = %s 
+                  host     = %s 
+                  port     = %s 
+                  user     = %s 
+                  password = %s """) % (
+                  options['db_name'],
+                  options['db_host'],
+                  options['db_port'],
+                  options['db_user'],
+                  options['db_pass'])
+        conn = psycopg2.connect(cs)
     except:
         print("unable to connect to the DB")
     r          = requests.get(address, verify=ssl_verify).json()
