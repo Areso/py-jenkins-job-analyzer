@@ -16,7 +16,7 @@ CREATE TABLE job_runs (
     job_result VARCHAR(24),
     job_timings JSONB,
     job_git_dets JSONB,
-    FOREIGN KEY (job_id) REFERENCES job_defers(id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    FOREIGN KEY (job_id) REFERENCES job_defs(id) ON DELETE RESTRICT ON UPDATE RESTRICT,
     UNIQUE (job_id, job_run_id)
 );
 
