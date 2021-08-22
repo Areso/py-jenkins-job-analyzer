@@ -15,7 +15,7 @@ def bigf(options):
                   host     = %s 
                   port     = %s 
                   user     = %s 
-                  password = %s """) % (
+                  password = %s """ % (
                   options['db_name'],
                   options['db_host'],
                   options['db_port'],
