@@ -20,7 +20,7 @@ def bigf(options):
                                    options['db_host'],
                                    options['db_port'],
                                    options['db_user'],
-                                   options['db_user'])
+                                   options['db_pass'])
     except:
         print("unable to connect to the DB")
     r          = requests.get(address, verify=ssl_verify).json()
