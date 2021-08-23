@@ -9,7 +9,7 @@ def bigf(options):
     address          = address+'@'+options['jnk_address']+'/'+options['job_names'][0]
     address    = address+'/'+str(options['job_id'])+'/api/json?pretty=true'
     ssl_verify = bool(options['ssl_enforce'])
-    
+    #DB connect
     try:
         cs   = """dbname   = %s 
                   host     = %s 
@@ -27,11 +27,19 @@ def bigf(options):
         sys.stderr.write("unable to connect to the DB")
         sys.exit(1)
     cursor  = conn.cursor()
+    #CHECKING DATABASE
     cursor.execute("SELECT * FROM job_defs WHERE job_link=%(job_name)s",
                    {"job_name": options["job_names"][0]})
     records = cursor.fetchall()
-    print(type(records))
-    print(len(records))
+    #INSERTING
+    if len(records)==0:
+        test = cursor.execute("INSERT INTO job_defs (job_link) VALUES job_link=%(job_name)s RETURNING id",
+                   {"job_name": options["job_names"][0]})
+        rec_id = cursor.fetchall()
+        print("---returnning from cursor execute---")
+        print(test)
+        print("---rec id - cursor from fetchall---")
+        print
     r          = requests.get(address, verify=ssl_verify).json()
     params     = r['actions'][0]['parameters']
     params_new = {}
