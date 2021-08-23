@@ -94,6 +94,7 @@ def bigf(options):
                                                 "full_job_url": full_job_url,
                                                 "job_causer": Json(job_causer),
                                                 "job_duration": job_duration,
+                                                "job_timestamp": job_timestamp,
                                                 "job_result": job_result,
                                                 "job_executor": job_executor,
                                                 "job_timings": Json(job_timings),
