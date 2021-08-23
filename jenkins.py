@@ -33,7 +33,7 @@ def bigf(options):
     records = cursor.fetchall()
     #INSERTING
     if len(records)==0:
-        test = cursor.execute("INSERT INTO job_defs (job_link) VALUES job_link=%(job_name)s RETURNING id",
+        test = cursor.execute("INSERT INTO job_defs (job_link) VALUES (job_link=%(job_name)s) RETURNING id",
                    {"job_name": options["job_names"][0]})
         rec_id = cursor.fetchall()
         print("---returnning from cursor execute---")
