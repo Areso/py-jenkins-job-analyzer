@@ -84,7 +84,7 @@ def bigf(options):
                                                  %(job_timings)s,
                                                  %(job_git_dets)s
                                                 )""", {
-                                                "job_id": ob_ref_id,
+                                                "job_id": job_ref_id,
                                                 "job_run_id": i,
                                                 "params": params_new,
                                                 "display_name": display_name,
