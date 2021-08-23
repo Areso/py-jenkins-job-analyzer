@@ -75,6 +75,7 @@ def bigf(options):
                                                  VALUES 
                                                 (%(job_id)s,
                                                  %(job_run_id)s,
+                                                 %(params)s,
                                                  %(display_name)s,
                                                  %(full_job_url)s,
                                                  %(job_causer)s,
