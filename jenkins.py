@@ -42,7 +42,7 @@ def bigf(options):
     #STARTING GATHERING THE JOB RUNS
     address          = options['schema']+'://'+options['username']+':'+options['token']
     address          = address+'@'+options['jnk_address']+'/'+options['job_names'][0]
-    for i in range(options['job_start_id'], options['job_start_id']):
+    for i in range(options['job_start_id'], options['job_finish_id']):
         address    = address+'/'+str(i)+'/api/json?pretty=true'
         r          = requests.get(address, verify=ssl_verify).json()
         params     = r['actions'][0]['parameters']
