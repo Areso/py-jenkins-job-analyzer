@@ -3,6 +3,8 @@ import requests
 import json
 import psycopg2
 import sys
+from psycopg2.extras import Json, DictCursor
+
 
 def bigf(options):
     ssl_verify = bool(options['ssl_enforce'])
@@ -23,7 +25,7 @@ def bigf(options):
         print("unable to connect to the DB")
         sys.stderr.write("unable to connect to the DB")
         sys.exit(1)
-    cursor  = conn.cursor()
+    cursor  = conn.cursor(cursor_factory=DictCursor)
     #CHECKING DATABASE
     cursor.execute("SELECT * FROM job_defs WHERE job_link=%(job_name)s",
                    {"job_name": options["job_names"][0]})
@@ -87,15 +89,15 @@ def bigf(options):
                                                 )""", {
                                                 "job_id": job_ref_id,
                                                 "job_run_id": i,
-                                                "params": params_new,
+                                                "params": Json(params_new),
                                                 "display_name": display_name,
                                                 "full_job_url": full_job_url,
-                                                "job_causer": job_causer,
+                                                "job_causer": Json(job_causer),
                                                 "job_duration": job_duration,
                                                 "job_result": job_result,
                                                 "job_executor": job_executor,
-                                                "job_timings": job_timings,
-                                                "job_git_dets": job_git_dets
+                                                "job_timings": Json(job_timings),
+                                                "job_git_dets": Json(job_git_dets)
                                                 })
         print(cursor.query)
         conn.commit()
