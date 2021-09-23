@@ -1,0 +1,17 @@
+version: '2.4'
+services:
+  db:
+    restart: always
+    hostname: gladdb
+    image: ${DOCKER_REGISTRY}/postgres:12.6
+    init: true
+    ports:
+    - "5499:5432"
+    volumes:
+    - pgstore2:/var/lib/postgresql/gladdb
+    environment:
+      POSTGRES_USER: anton
+      POSTGRES_PASSWORD: antonspass
+
+volumes:
+  pgstore2:
